@@ -18,14 +18,14 @@ public:
     MaterialObject()
     {
         // Physical properties
-        slot["coordX"].push_back(new Value());
-        slot["coordY"].push_back(new Value());
-        slot["coordZ"].push_back(new Value());
+        for (int i = 0; i < 3; i++)
+            slot["coord"].push_back(new Value<float>());
+        for (int i = 0; i < 2; i++)
+            slot["bounds"].push_back(new Value<float>());
 
         // Semantic properties
-        slot["class"].push_back(new Value());
-        for (int i = 0; i < 2; i++)
-            slot["bounds"].push_back(new Value());
+        slot["class"].push_back(new Value<int>());
+        slot["moveable"].push_back(new Value<bool>());
 
         // Relations
         slot["near"].push_back(new Pointer());
